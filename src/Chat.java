@@ -31,7 +31,6 @@ public class Chat {
 	
 	public static void main(String[] args) throws IOException {
 
-		
 		read=Selector.open();
 		write =Selector.open();
 		
@@ -73,7 +72,6 @@ public class Chat {
 				break;
 			case "connect":
 				//client part
-				//System.out.println(arrStr[1]);
 				if(arrStr.length<3)
 				{
 					System.out.println("syntax problem");
@@ -218,6 +216,7 @@ public class Chat {
 		}
 		return null;
 	}
+	
 	public static String parseChannelIp(SocketChannel channel){//parse the ip form the SocketChannel.getRemoteAddress();
 		String ip = null;
 		String rawIp =null;  
@@ -251,11 +250,10 @@ public class Chat {
 		return null;
 	}
 	
-	
 	@SuppressWarnings("rawtypes")
 	public static void myip() throws SocketException, UnknownHostException
 	{
-		Enumeration e = NetworkInterface.getNetworkInterfaces();
+/*		Enumeration e = NetworkInterface.getNetworkInterfaces();
 		boolean flag=false;
 		while(e.hasMoreElements() && !flag)
 		{
@@ -274,8 +272,8 @@ public class Chat {
 		        }
 		        round++;
 		    }
-		}
-		//System.out.println("The IP Address is "+InetAddress.getLocalHost().getHostAddress());
+		}*/
+		System.out.println("The IP Address is "+InetAddress.getLocalHost().getHostAddress());
 	}
 }
 
@@ -308,7 +306,6 @@ class Peer{
 class Server extends Thread {
 	
 	int port=0;
-	
 	
 	Server(int port)
 	{
@@ -343,9 +340,7 @@ class Server extends Thread {
 		}catch (IOException e) {
 			e.printStackTrace();
 		}
-		
 	}
-	
 }
 
 class Client extends Thread{
@@ -380,8 +375,6 @@ class Client extends Thread{
 							System.out.println(IP+" remotely close the connection");
 							break;
 						}
-						
-						
 						String message="";
 						while(byteRead != 0)
 						{
