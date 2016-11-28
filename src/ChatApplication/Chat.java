@@ -1,3 +1,4 @@
+package ChatApplication;
 
 import java.io.IOException;
 import java.net.BindException;
@@ -28,6 +29,7 @@ public class Chat {
 	static String myip;
 	static Client client;
 	static Server server;
+
 	
 	public static void main(String[] args) throws IOException {
 
@@ -253,7 +255,7 @@ public class Chat {
 	@SuppressWarnings("rawtypes")
 	public static void myip() throws SocketException, UnknownHostException
 	{
-/*		Enumeration e = NetworkInterface.getNetworkInterfaces();
+		Enumeration e = NetworkInterface.getNetworkInterfaces();
 		boolean flag=false;
 		while(e.hasMoreElements() && !flag)
 		{
@@ -272,7 +274,7 @@ public class Chat {
 		        }
 		        round++;
 		    }
-		}*/
+		}
 		System.out.println("The IP Address is "+InetAddress.getLocalHost().getHostAddress());
 	}
 }
